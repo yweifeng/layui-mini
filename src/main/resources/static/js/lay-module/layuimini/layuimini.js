@@ -52,7 +52,8 @@ layui.define(["element", "jquery"], function (exports) {
                     layuimini.initHome(data.homeInfo);
                     layuimini.initLogo(data.logoInfo);
                     layuimini.initClear(data.clearInfo);
-                    layuimini.initMenu(data.menuInfo);
+                    // layuimini.initMenu(data.menuInfo);
+                    layuimini.initMenuCustom();
                     layuimini.initTab();
                 }
             }).fail(function () {
@@ -127,6 +128,81 @@ layui.define(["element", "jquery"], function (exports) {
          * 初始化菜单栏
          * @param data
          */
+        this.initMenuCustom = function () {
+            // http://127.0.0.1:8102/initMenu
+            $.ajax({
+                type: "GET",
+                url: "/initMenu",
+                success: function (menuList) {
+                   // console.log(data);
+                   var headerMenuHtml = '',
+                       headerMobileMenuHtml = '',
+                       leftMenuHtml = '',
+                       headerMenuCheckDefault = 'layui-this',
+                       leftMenuCheckDefault = 'layui-this';
+                    window.menuParameId = 1;
+
+
+                    var data = {
+                        "currency": {
+                            "title": "常规管理",
+                            "icon": "fa fa-address-book"
+                        }
+                    }
+
+                    $.each(data, function (key, val) {
+                        headerMenuHtml += '<li class="layui-nav-item ' + headerMenuCheckDefault + '" id="' + key + 'HeaderId" data-menu="' + key + '"> <a href="javascript:;"><i class="' + val.icon + '"></i> ' + val.title + '</a> </li>\n';
+                        headerMobileMenuHtml += '<dd><a href="javascript:;" id="' + key + 'HeaderId" data-menu="' + key + '"><i class="' + val.icon + '"></i> ' + val.title + '</a></dd>\n';
+                        leftMenuHtml += '<ul class="layui-nav layui-nav-tree layui-left-nav-tree ' + leftMenuCheckDefault + '" id="' + key + '">\n';
+                    });
+                    menuList = JSON.parse(menuList);
+                    $.each(menuList, function (index, menu) {
+                        leftMenuHtml += '<li class="layui-nav-item">\n';
+                        if (menu.child != undefined && menu.child != []) {
+                            leftMenuHtml += '<a href="javascript:;" class="layui-menu-tips" ><i class="' + menu.icon + '"></i><span class="layui-left-nav"> ' + menu.moduleName + '</span> </a>';
+                            var buildChildHtml = function (html, child, menuParameId) {
+                                html += '<dl class="layui-nav-child">\n';
+                                $.each(child, function (childIndex, childMenu) {
+                                    html += '<dd>\n';
+                                    if (childMenu.child != undefined && childMenu.child != []) {
+                                        html += '<a href="javascript:;" class="layui-menu-tips" ><i class="' + childMenu.icon + '"></i><span class="layui-left-nav"> ' + childMenu.title + '</span></a>';
+                                        html = buildChildHtml(html, childMenu.child, menuParameId);
+                                    } else {
+                                        html += '<a href="javascript:;" class="layui-menu-tips" data-type="tabAdd"  data-tab-mpi="m-p-i-' + menuParameId + '" data-tab="' + childMenu.href + '" target="' + childMenu.target + '"><i class="' + childMenu.icon + '"></i><span class="layui-left-nav"> ' + childMenu.title + '</span></a>\n';
+                                        menuParameId++;
+                                        window.menuParameId = menuParameId;
+                                    }
+                                    html += '</dd>\n';
+                                });
+                                html += '</dl>\n';
+                                return html;
+                            };
+                            leftMenuHtml = buildChildHtml(leftMenuHtml, menu.child, menuParameId);
+                        } else {
+                            leftMenuHtml += '<a href="javascript:;" class="layui-menu-tips"  data-type="tabAdd" data-tab-mpi="m-p-i-' + menuParameId + '" data-tab="' + menu.moduleUrl + '" target="_self"><i class="' + menu.icon + '"></i><span class="layui-left-nav"> ' + menu.moduleName + '</span></a>\n';
+                            menuParameId++;
+                        }
+                        leftMenuHtml += '</li>\n';
+                    });
+                    leftMenuHtml += '</ul>\n';
+                    headerMenuCheckDefault = '';
+                    leftMenuCheckDefault = 'layui-hide';
+
+                    $('.layui-header-pc-menu').html(headerMenuHtml); //电脑
+                    $('.layui-header-mini-menu').html(headerMobileMenuHtml); //手机
+                    $('.layui-left-menu').html(leftMenuHtml);
+                    element.init();
+                },
+                error: function () {
+                    layer.alert("操作请求错误，请您稍后再试");
+                }
+            });
+        }
+
+        /**
+         * 初始化菜单栏
+         * @param data
+         */
         this.initMenu = function (data) {
             var headerMenuHtml = '',
                 headerMobileMenuHtml = '',
@@ -134,7 +210,6 @@ layui.define(["element", "jquery"], function (exports) {
                 headerMenuCheckDefault = 'layui-this',
                 leftMenuCheckDefault = 'layui-this';
             window.menuParameId = 1;
-
             $.each(data, function (key, val) {
                 headerMenuHtml += '<li class="layui-nav-item ' + headerMenuCheckDefault + '" id="' + key + 'HeaderId" data-menu="' + key + '"> <a href="javascript:;"><i class="' + val.icon + '"></i> ' + val.title + '</a> </li>\n';
                 headerMobileMenuHtml += '<dd><a href="javascript:;" id="' + key + 'HeaderId" data-menu="' + key + '"><i class="' + val.icon + '"></i> ' + val.title + '</a></dd>\n';
