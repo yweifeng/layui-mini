@@ -39,4 +39,10 @@ public class IndexController {
         return "redirect:login";
     }
 
+    @RequestMapping("page/cfgParam")
+    public String cfgParam(){
+        logger.info("定向系统参数");
+        return "cfgParam/list";
+    }
+
 }

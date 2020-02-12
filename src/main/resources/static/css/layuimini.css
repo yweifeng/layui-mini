@@ -25,7 +25,6 @@
     top: 21px;
     left: 20px;
 }
-
 /**头部样式 */
 .layui-layout-admin .header {position: fixed;left: 0;right: 0;top: 0;bottom: 0;}
 .layui-header-menu,.layui-header {height:50px !important;}
@@ -63,7 +62,7 @@
 #top_tabs_box>.layui-tab-title li {border-right:1px solid #e2e2e2;font-size: 12.5px!important;}
 #top_tabs_box>.layui-tab-title .layui-this {color:#000000;}
 #top_tabs_box>.layui-tab-title .layui-this:after {margin-top:1px;width: 100%;border: none;height: 2px;background-color: #243346;}
-#top_tabs_box {padding-right:138px;height:39px;border-bottom:1px solid #e2e2e2;box-sizing: border-box;box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);}
+#top_tabs_box {padding-right:138px;height:39px;border-bottom:1px solid #e2e2e2;box-sizing: border-box;box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);background: #ffffff;}
 #top_tabs_box > .layui-tab-title ,#top_tabs_box > .closeBox {height:39px !important;}
 #top_tabs_box > .layui-tab-title > li ,#top_tabs_box > .closeBox > li {line-height:40px !important;}
 #top_tabs {position:absolute;border-bottom:none;}
