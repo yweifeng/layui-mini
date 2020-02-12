@@ -2303,8 +2303,8 @@ a cite {
 }
 
 .layui-form-checked[lay-skin=primary] i {
-    border-color: #5FB878!important;
-    background-color: #5FB878;
+    border-color: #000000ad!important;
+    background-color: #000000ad;
     color: #fff
 }
 
