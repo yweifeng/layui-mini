@@ -1,0 +1,59 @@
+{
+  "clearInfo": {
+    "clearUrl": "api/clear.json"
+  },
+  "homeInfo": {
+    "title": "首页",
+    "icon": "fa fa-home",
+    "href": "page/welcome-1.html?mpi=m-p-i-0"
+  },
+  "logoInfo": {
+    "title": "单体应用",
+    "image": "images/logo.png",
+    "href": ""
+  },
+  "menuInfo": {
+    "currency": {
+      "title": "常规管理",
+      "icon": "fa fa-address-book",
+      "child": [
+        {
+          "title": "组织架构",
+          "href": "page/cfgDept",
+          "icon": "fa fa-sitemap",
+          "target": "_self"
+        },
+        {
+          "title": "账号管理",
+          "href": "page/cfgUser",
+          "icon": "fa fa-user",
+          "target": "_self"
+        },
+        {
+          "title": "角色管理",
+          "href": "page/cfgRole",
+          "icon": "fa fa-group",
+          "target": "_self"
+        },
+        {
+          "title": "模块管理",
+          "href": "page/cfgModule",
+          "icon": "fa fa-list-ol",
+          "target": "_self"
+        },
+        {
+          "title": "字典管理",
+          "href": "page/cfgDict",
+          "icon": "fa fa-book",
+          "target": "_self"
+        },
+        {
+          "title": "参数管理",
+          "href": "page/cfgParam",
+          "icon": "fa fa-umbrella",
+          "target": "_self"
+        }
+      ]
+    }
+  }
+}
