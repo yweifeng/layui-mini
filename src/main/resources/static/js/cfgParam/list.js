@@ -25,7 +25,7 @@ $(function() {
             defaultToolbar: ['filter', 'exports'],
             cols: [[
                 {type: "checkbox", fixed: "left"},
-                {field: 'unid', title: 'ID', sort: true},
+                {type: "numbers", title: '序号'},
                 {field: 'globalName', title: '参数名'},
                 {field: 'globalValue', title: '参数值', sort: true},
                 {
@@ -83,7 +83,16 @@ $(function() {
         $(".data-delete-btn").on("click", function () {
             var checkStatus = table.checkStatus('currentTableId')
                 , data = checkStatus.data;
-            layer.alert(JSON.stringify(data));
+            // layer.alert(JSON.stringify(data));
+            if (data.length > 0) {
+                layer.confirm('真的删除行么', function (index) {
+                    // TODO 删除选中行
+
+                    layer.close(index);
+                });
+            } else {
+                layer.alert("请至少选择一行");
+            }
         });
 
         //监听表格复选框选择
@@ -110,6 +119,7 @@ $(function() {
                 return false;
             } else if (obj.event === 'delete') {
                 layer.confirm('真的删除行么', function (index) {
+                    // TODO 刷新表格
                     obj.del();
                     layer.close(index);
                 });
