@@ -40,6 +40,18 @@ public class IndexController {
         return "redirect:login";
     }
 
+    @RequestMapping("page/cfgParam")
+    public String cfgParam(){
+        logger.info("定向系统参数");
+        return "cfgParam/list";
+    }
+
+    @RequestMapping("page/cfgParam/form")
+    public String cfgParamForm(){
+        logger.info("定向系统参数form");
+        return "cfgParam/form";
+    }
+
     @RequestMapping("initMenu")
     @ResponseBody
     public String initMenu(){

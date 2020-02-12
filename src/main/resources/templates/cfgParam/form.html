@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head th:include="layout :: htmlhead" th:with="title='后台管理'">
+<body>
+<div class="layuimini-container">
+    <div class="layuimini-main">
+
+        <form class="layui-form" action="">
+            <div class="layui-form-item">
+                <label class="layui-form-label">参数名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="globalName" lay-verify="globalName" autocomplete="off" placeholder="请输入参数名称" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">参数值</label>
+                <div class="layui-input-block">
+                    <input type="text" name="globalValue" lay-verify="globalValue" autocomplete="off" placeholder="请输入参数值" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">描述</label>
+                <div class="layui-input-block">
+                    <textarea class="layui-textarea"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit="" lay-filter="demo1">保存</button>
+                    <button class="layui-btn layui-btn-primary">取消</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script src="/js/cfgParam/form.js"></script>
+
+</body>
+</html>
