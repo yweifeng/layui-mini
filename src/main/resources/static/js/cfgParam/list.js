@@ -7,29 +7,33 @@ $(function() {
         var $ = layui.jquery,
             form = layui.form,
             table = layui.table,
+            util = layui.util,
             layuimini = layui.layuimini;
 
         table.render({
             elem: '#currentTableId',
             url: '/api/table.json',
             toolbar: '#toolbarDemo',
-            defaultToolbar: ['filter', 'exports', 'print', {
-                title: '提示',
-                layEvent: 'LAYTABLE_TIPS',
-                icon: 'layui-icon-tips'
-            }],
+            parseData: function(res){ //res 即为原始返回的数据
+                return {
+                    "code": res.result?0:-1, //解析接口状态
+                    "msg": '', //解析提示文本
+                    "count": res.data.page.totalItems, //解析数据长度
+                    "data": res.data.content //解析数据列表
+                };
+            },
+            defaultToolbar: ['filter', 'exports'],
             cols: [[
-                {type: "checkbox", width: 50, fixed: "left"},
-                {field: 'id', width: 80, title: 'ID', sort: true},
-                {field: 'username', width: 80, title: '用户名'},
-                {field: 'sex', width: 80, title: '性别', sort: true},
-                {field: 'city', width: 80, title: '城市'},
-                {field: 'sign', title: '签名', minWidth: 150},
-                {field: 'experience', width: 80, title: '积分', sort: true},
-                {field: 'score', width: 80, title: '评分', sort: true},
-                {field: 'classify', width: 80, title: '职业'},
-                {field: 'wealth', width: 135, title: '财富', sort: true},
-                {title: '操作', minWidth: 50, templet: '#currentTableBar', fixed: "right", align: "center"}
+                {type: "checkbox", fixed: "left"},
+                {field: 'unid', title: 'ID', sort: true},
+                {field: 'globalName', title: '参数名'},
+                {field: 'globalValue', title: '参数值', sort: true},
+                {
+                    field: 'createTime', sort: true, templet: function (d) {
+                        return util.toDateString(d.createTime);
+                    }, title: '创建时间'
+                },
+                {title: '操作', templet: '#currentTableBar', fixed: "right", align: "center"}
             ]],
             limits: [10, 15, 20, 25, 50, 100],
             limit: 15,
@@ -60,13 +64,13 @@ $(function() {
         $(".data-add-btn").on("click", function () {
 
             var index = layer.open({
-                title: '添加用户',
+                title: '添加',
                 type: 2,
                 shade: 0.2,
                 maxmin:true,
                 shadeClose: true,
                 area: ['100%', '100%'],
-                content: '/page/table/add.html',
+                content: '/page/cfgParam/form',
             });
             $(window).on("resize", function () {
                 layer.full(index);

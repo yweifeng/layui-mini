@@ -1,127 +1,88 @@
 {
-  "code": 0,
-  "msg": "",
-  "count": 1000,
-  "data": [
-    {
-      "id": 10000,
-      "username": "user-0",
-      "sex": "女",
-      "city": "城市-0",
-      "sign": "签名-0",
-      "experience": 255,
-      "logins": 24,
-      "wealth": 82830700,
-      "classify": "作家",
-      "score": 57
-    },
-    {
-      "id": 10001,
-      "username": "user-1",
-      "sex": "男",
-      "city": "城市-1",
-      "sign": "签名-1",
-      "experience": 884,
-      "logins": 58,
-      "wealth": 64928690,
-      "classify": "词人",
-      "score": 27
-    },
-    {
-      "id": 10002,
-      "username": "user-2",
-      "sex": "女",
-      "city": "城市-2",
-      "sign": "签名-2",
-      "experience": 650,
-      "logins": 77,
-      "wealth": 6298078,
-      "classify": "酱油",
-      "score": 31
-    },
-    {
-      "id": 10003,
-      "username": "user-3",
-      "sex": "女",
-      "city": "城市-3",
-      "sign": "签名-3",
-      "experience": 362,
-      "logins": 157,
-      "wealth": 37117017,
-      "classify": "诗人",
-      "score": 68
-    },
-    {
-      "id": 10004,
-      "username": "user-4",
-      "sex": "男",
-      "city": "城市-4",
-      "sign": "签名-4",
-      "experience": 807,
-      "logins": 51,
-      "wealth": 76263262,
-      "classify": "作家",
-      "score": 6
-    },
-    {
-      "id": 10005,
-      "username": "user-5",
-      "sex": "女",
-      "city": "城市-5",
-      "sign": "签名-5",
-      "experience": 173,
-      "logins": 68,
-      "wealth": 60344147,
-      "classify": "作家",
-      "score": 87
-    },
-    {
-      "id": 10006,
-      "username": "user-6",
-      "sex": "女",
-      "city": "城市-6",
-      "sign": "签名-6",
-      "experience": 982,
-      "logins": 37,
-      "wealth": 57768166,
-      "classify": "作家",
-      "score": 34
-    },
-    {
-      "id": 10007,
-      "username": "user-7",
-      "sex": "男",
-      "city": "城市-7",
-      "sign": "签名-7",
-      "experience": 727,
-      "logins": 150,
-      "wealth": 82030578,
-      "classify": "作家",
-      "score": 28
-    },
-    {
-      "id": 10008,
-      "username": "user-8",
-      "sex": "男",
-      "city": "城市-8",
-      "sign": "签名-8",
-      "experience": 951,
-      "logins": 133,
-      "wealth": 16503371,
-      "classify": "词人",
-      "score": 14
-    },
-    {
-      "id": 10009,
-      "username": "user-9",
-      "sex": "女",
-      "city": "城市-9",
-      "sign": "签名-9",
-      "experience": 484,
-      "logins": 25,
-      "wealth": 86801934,
-      "classify": "词人",
-      "score": 75
+  "result": true,
+  "data": {
+    "content": [{
+      "unid": "5728f7dadd754d5688c285c41675e603",
+      "globalName": "新增",
+      "globalValue": "新增",
+      "globalRemark": "",
+      "createTime": 1545807022000,
+      "createUser": "admin",
+      "modifyTime": 1546929738000,
+      "modifyUser": "admin"
+    }, {
+      "unid": "5b5cf9f76a324a6296d77a8c96675cc7",
+      "globalName": "系统设置_资源控制_最大并发连接数",
+      "globalValue": "500",
+      "globalRemark": "",
+      "createTime": 1566352526000,
+      "createUser": "admin",
+      "modifyTime": null,
+      "modifyUser": null
+    }, {
+      "unid": "61b03b609895496c913c0e9de9c33f85",
+      "globalName": "系统设置_资源控制_高峰期时段",
+      "globalValue": "10-24",
+      "globalRemark": "小时范围计算，0为不控制，设置对资源控制类配置生效",
+      "createTime": 1566352487000,
+      "createUser": "admin",
+      "modifyTime": null,
+      "modifyUser": null
+    }, {
+      "unid": "8cbe114f641f45cf94c174dc7e607922",
+      "globalName": "参数1",
+      "globalValue": "23",
+      "globalRemark": "测试",
+      "createTime": 1542893691000,
+      "createUser": null,
+      "modifyTime": 1542893715000,
+      "modifyUser": null
+    }, {
+      "unid": "8cc6bc4e2f584d6b926f212ecc8a3e19",
+      "globalName": "login_ban_time",
+      "globalValue": "1",
+      "globalRemark": "登录次数过多，禁止登录时间(分钟)",
+      "createTime": 1547447408000,
+      "createUser": "admin",
+      "modifyTime": 1557903277000,
+      "modifyUser": "admin"
+    }, {
+      "unid": "96a052913b7a4a7296d1e9a4b5d0a7c0",
+      "globalName": "231",
+      "globalValue": "31",
+      "globalRemark": "",
+      "createTime": 1549854153000,
+      "createUser": "admin",
+      "modifyTime": null,
+      "modifyUser": null
+    }, {
+      "unid": "e5c1c473293643179daafc5e76822978",
+      "globalName": "login_time",
+      "globalValue": "3",
+      "globalRemark": "登录失败次数",
+      "createTime": 1547447395000,
+      "createUser": "admin",
+      "modifyTime": 1547452624000,
+      "modifyUser": "admin"
+    }, {
+      "unid": "e9458a9a42774470aecd69190ba69035",
+      "globalName": "系统设置_资源控制_同账户最大线程数",
+      "globalValue": "10",
+      "globalRemark": "",
+      "createTime": 1566352508000,
+      "createUser": "admin",
+      "modifyTime": null,
+      "modifyUser": null
+    }],
+    "page": {
+      "beginIndex": 1,
+      "endIndex": 10,
+      "startRownum": -1,
+      "endRownum": -1,
+      "totalItems": 8,
+      "pageSize": 10,
+      "totalPages": 1,
+      "currentPage": 1
     }
-  ]
+  }
 }
