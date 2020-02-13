@@ -179,7 +179,7 @@ layui.define(["element", "jquery"], function (exports) {
                             };
                             leftMenuHtml = buildChildHtml(leftMenuHtml, menu.child, menuParameId);
                         } else {
-                            leftMenuHtml += '<a href="javascript:;" class="layui-menu-tips"  data-type="tabAdd" data-tab-mpi="m-p-i-' + menuParameId + '" data-tab="' + menu.moduleUrl + '" target="_self"><i class="' + menu.icon + '"></i><span class="layui-left-nav"> ' + menu.moduleName + '</span></a>\n';
+                            leftMenuHtml += '<a href="javascript:;" class="layui-menu-tips"  data-type="tabAdd" data-tab-mpi="m-p-i-' + menuParameId + '" data-tab="' + menu.moduleUrl + '" target="_self"><i class="' + menu.moduleStyle + '"></i><span class="layui-left-nav"> ' + menu.moduleName + '</span></a>\n';
                             menuParameId++;
                         }
                         leftMenuHtml += '</li>\n';
