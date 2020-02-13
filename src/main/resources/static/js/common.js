@@ -147,3 +147,8 @@ function isError(result){
     }
     return flag;//返回true
 }
+
+function closeFrame() {
+    var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+    parent.layer.close(index); //再执行关闭
+}
